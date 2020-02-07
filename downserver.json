@@ -1,0 +1,10 @@
+  
+[
+  {
+    "targets": [ "192.168.99.2:9100"],
+    "labels": {
+      "env": "DownServerEx",
+      "job": "node-exporter"
+    }
+  }
+]
