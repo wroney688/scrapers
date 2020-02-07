@@ -1,0 +1,9 @@
+[
+  {
+    "targets": [ "192.168.99.100:9100"],
+    "labels": {
+      "env": "Pi 4",
+      "job": "env-config-check"
+    }
+  }
+]
