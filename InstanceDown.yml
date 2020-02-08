@@ -10,5 +10,4 @@ groups:
       severity: triage
     annotations:
       summary: "Exporter {{ $labels.instance }} down"
-      description: "Exporter for target {{ $labels.instance }} of job {{ $labels.job }} does not appear to be up. {{ range .Alerts }}{{ .StartsAt }}"
-      
+      description: "{{ range .Alerts }}Exporter for target {{ $labels.instance }} of job {{ $labels.job }} does not appear to be up since {{ .Starts At }}.{{ end }}"
