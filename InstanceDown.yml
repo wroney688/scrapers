@@ -10,5 +10,5 @@ groups:
       severity: triage
     annotations:
       summary: "Exporter {{ $labels.instance }} down"
-      description: "Exporter for target {{ $labels.instance }} of job {{ $labels.job }} detected down at {{$alerts.startsAt}}."
+      description: "Exporter for target {{ $labels.instance }} of job {{ $labels.job }} detected down at {{.Alerts.startsAt}}."
       
