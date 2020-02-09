@@ -10,4 +10,4 @@ groups:
       severity: triage
     annotations:
       summary: "Exporter {{ $labels.instance }} down"
-      description: "Exporter for target {{ $labels.instance }} of job {{ $labels.job }} does not appear to be up. {{query(timestamp(up{env=$labels.env}==0)}}"
+      description: "Exporter for target {{ $labels.instance }} of job {{ $labels.job }} does not appear to be up. {{query(timestamp(up{env=$labels.env}==0))}}"
