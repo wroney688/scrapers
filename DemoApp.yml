@@ -1,0 +1,13 @@
+groups:
+- name: exporter_check
+  rules:
+
+  # Alert for any instance that is unreachable for >5 minutes.
+  - alert: DemoAppUp
+    expr: up == 1
+    for: 3m
+    labels:
+      severity: triage
+    annotations:
+      summary: "Demo App {{ $labels.instance }} appears to be UP."
+      description: "Exporter for DemoApp [{{ $labels.instance }}] of job [{{ $labels.job }}] appears to be UP."
