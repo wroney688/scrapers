@@ -6,7 +6,7 @@ groups:
     expr: aut_config_info {envname="S1", YV="NYC"} == 1
     
   - record: MyAppConfigValue:S2:Market
-    expr: aut_config_info {envname="S2", YV="DLS"} == 1
+    expr: absent(aut_config_info {envname="S2", YV="DLS"}) == 1
     
   - alert: MyAppConfigInvalid
     expr: MyAppConfigValue:S1:Market
