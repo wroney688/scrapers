@@ -7,6 +7,12 @@ groups:
     
   - record: MyAppConfigValue:S2:Market
     expr: absent( aut_config_info {envname="S1", YV="DLS"} )*2 or aut_config_info{envname="S1", YV="DLS"}
+
+  - record: MyAppConfigValue:S1:CSI
+    expr: absent( aut_config_info {envname="S1", CV="T1"} )*2 or aut_config_info{envname="S1", CV="T1"}
+    
+  - record: MyAppConfigValue:S2:CSI
+    expr: absent( aut_config_info {envname="S1", CV="T2"} )*2 or aut_config_info{envname="S1", CV="T2"}
     
   - alert: MyAppConfigInvalid
     expr: MyAppConfigValue:S1:Market == 2
@@ -23,3 +29,19 @@ groups:
       severity: triage
     annotations:
       description: "MyApp:S2:Market is NOT DLS"  
+
+  - alert: MyAppConfigInvalid3
+    expr: MyAppConfigValue:S1:CSI == 2
+    for: 1m
+    labels:
+      severity: triage
+    annotations:
+      description: "MyApp:S1:CSI is NOT T1"  
+      
+  - alert: MyAppConfigInvalid4
+    expr: MyAppConfigValue:S2:CSI == 2
+    for: 1m
+    labels:
+      severity: triage
+    annotations:
+      description: "MyApp:S2:CSI is NOT T2"  
