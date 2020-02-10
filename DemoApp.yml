@@ -3,11 +3,20 @@ groups:
   rules:
 
   # Alert for any instance that is unreachable for >5 minutes.
-  - alert: DemoAppUp
-    expr: up{env="DemoApp"} == 1
+  - alert: DemoAppDown
+    expr: up{env="DemoApp"} == 0
     for: 3m
     labels:
       severity: triage
     annotations:
-      summary: "Demo App {{ $labels.instance }} appears to be UP."
-      description: "Exporter for DemoApp [{{ $labels.instance }}] of job [{{ $labels.job }}] appears to be UP."
+      summary: "Demo App {{ $labels.instance }} appears to be DOWN."
+      description: "Exporter for DemoApp [{{ $labels.instance }}] of job [{{ $labels.job }}] appears to be DOWN."
+  - alert: InvalidXML
+    expr: aut_config_info {env="DemoApp", CV="T1"}
+    for: 1m
+    labels:
+      severity: triage
+    annotations:
+      summary: "Demo App {{ $labels.instance }} Configuration Error."
+      description: "DemoApp [{{ $labels.instance }}][{{ $labels.envname }}] appears incorrect: {{ $labels.CV }}."
+  
