@@ -3,7 +3,7 @@ groups:
 - name: MyAppConfigCheck
   rules:
   - record: MyAppConfigValue:S1:Market
-    expr: aut_config_info {envname="S1", YV="NYC"} == 1
+    expr: absent(aut_config_info {envname="S1", YV="NYC"}) == 1
     
   - record: MyAppConfigValue:S2:Market
     expr: absent(aut_config_info {envname="S2", YV="DLS"}) == 1
@@ -14,7 +14,7 @@ groups:
     labels:
       severity: triage
     annotations:
-      description: "MyApp:S1:Market is NYC {{ $value }}"  
+      description: "MyApp:S1:Market is NOT NYC {{ $value }}"  
       
   - alert: MyAppConfigInvalid2
     expr: MyAppConfigValue:S2:Market
@@ -22,4 +22,4 @@ groups:
     labels:
       severity: triage
     annotations:
-      description: "MyApp:S2:Market is DLS {{ $value }}"  
+      description: "MyApp:S2:Market is NOT DLS {{ $value }}"  
