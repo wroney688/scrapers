@@ -4,6 +4,10 @@ groups:
   rules:
   - record: MyAppConfigValue:S1:Market
     expr: aut_config_info {envname="S1", YV="NYC"} == 1
+    
+  - record: MyAppConfigValue:S2:Market
+    expr: aut_config_info {envname="S2", YV="DLS"} == 1
+    
   - alert: MyAppConfigInvalid
     expr: MyAppConfigValue:S1:Market
     for: 1m
@@ -11,3 +15,11 @@ groups:
       severity: triage
     annotations:
       description: "MyApp:S1:Market is NYC {{ $value }}"  
+      
+  - alert: MyAppConfigInvalid2
+    expr: MyAppConfigValue:S2:Market
+    for: 1m
+    labels:
+      severity: triage
+    annotations:
+      description: "MyApp:S2:Market is DLS {{ $value }}"  
