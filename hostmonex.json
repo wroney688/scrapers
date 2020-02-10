@@ -1,20 +1,20 @@
 [
   {
-    "targets": [ "nfr-hostmon-metrics:9100"],
+    "targets": [ "nfr-testapp-host:9100"],
     "labels": {
       "env": "DemoApp",
       "job": "node-exporter"
     }
   },
   {
-    "targets": [ "nfr-testapp-endpoint-np:5000"],
+    "targets": [ "nfr-testapp-metrics:5000"],
     "labels": {
       "env": "DemoApp",
       "job": "DemoApp"
     }
   },
   {
-    "targets": [ "nfr-testapp-metrics-np:9270"],
+    "targets": [ "nfr-testapp-config:9270"],
     "labels": {
       "env": "DemoApp",
       "job": "DemoApp-Config"
