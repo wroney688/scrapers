@@ -19,7 +19,7 @@ groups:
     annotations:
       summary: "Demo App {{ $labels.instance }} Configuration Error - config.xml."
       description: "DemoApp[{{ $labels.envname }}] config.xml(CV) != T2."
-  - alert: DemoAppInvalidXML
+  - alert: DemoAppInvalidYAML
     expr: absent(aut_config_info {env="DemoApp", YV="NYC", envname="S1"}) == 1
     for: 1m
     labels:
