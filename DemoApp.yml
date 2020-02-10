@@ -12,7 +12,7 @@ groups:
       summary: "Demo App {{ $labels.instance }} appears to be DOWN."
       description: "Exporter for DemoApp [{{ $labels.instance }}] of job [{{ $labels.job }}] appears to be DOWN."
   - alert: DemoAppInvalidXML
-    expr: absent(aut_config_info {env="DemoApp", CV="T2", envname=~".+", instance=~".+", appname=~".+"}) == 1
+    expr: absent(aut_config_info {env="DemoApp", CV="T2", envname="S1"}) == 1
     for: 1m
     labels:
       severity: triage
