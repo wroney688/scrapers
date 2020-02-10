@@ -14,7 +14,7 @@ groups:
     labels:
       severity: triage
     annotations:
-      description: "MyApp:S1:Market is NOT NYC {{ $value }}"  
+      description: "MyApp:S1:Market is NOT NYC"  
       
   - alert: MyAppConfigInvalid2
     expr: MyAppConfigValue:S2:Market
@@ -22,4 +22,4 @@ groups:
     labels:
       severity: triage
     annotations:
-      description: "MyApp:S2:Market is NOT DLS {{ $value }}"  
+      description: "MyApp:S2:Market is NOT DLS"  
