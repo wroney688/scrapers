@@ -18,5 +18,5 @@ groups:
       severity: triage
     annotations:
       summary: "Demo App {{ $labels.instance }} Configuration Error - config.xml."
-      description: "DemoApp [{{ $labels.instance }}][{{ $labels.envname }}] appears incorrect: {{ $labels.CV }} (looking for T2)."
+      description: "DemoApp[{{ $labels.envname }}] appears incorrect: {{ $labels.CV }} (looking for T2)."
   
