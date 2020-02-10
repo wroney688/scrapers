@@ -1,0 +1,9 @@
+[
+  {
+    "targets": [ "nfr-hostmon-metrics:9100"],
+    "labels": {
+      "env": "DemoApp",
+      "job": "node-exporter"
+    }
+  }
+]
