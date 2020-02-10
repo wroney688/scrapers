@@ -1,0 +1,13 @@
+  
+groups:
+- name: MyAppConfigCheck
+  rules:
+  - record: MyAppConfigValue:S1:Market
+    expr: aut_config_info {envname="S1", YV="NYC"} == 1
+  - alert: MyAppConfigInvalid
+    expr: MyAppConfigValue:S1:Market
+    for: 1m
+    labels:
+      severity: triage
+    annotations:
+      description: "MyApp:S1:Market is NYC {{ $value }}"  
