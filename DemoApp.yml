@@ -12,11 +12,11 @@ groups:
       summary: "Demo App {{ $labels.instance }} appears to be DOWN."
       description: "Exporter for DemoApp [{{ $labels.instance }}] of job [{{ $labels.job }}] appears to be DOWN."
   - alert: InvalidXML
-    expr: aut_config_info {env="DemoApp", CV="T1"}
+    expr: aut_config_info {env="DemoApp", CV="T2"} == 0
     for: 1m
     labels:
       severity: triage
     annotations:
       summary: "Demo App {{ $labels.instance }} Configuration Error."
-      description: "DemoApp [{{ $labels.instance }}][{{ $labels.envname }}] appears incorrect: {{ $labels.CV }}."
+      description: "DemoApp [{{ $labels.instance }}][{{ $labels.envname }}] appears incorrect: {{ $labels.CV }} (looking for T2)."
   
