@@ -1,6 +1,6 @@
 [
   {
-    "targets": [ "192.168.99.102:9100"],
+    "targets": [ "jetson:9100"],
     "labels": {
       "env": "Jetson",
       "job": "node-exporter"
