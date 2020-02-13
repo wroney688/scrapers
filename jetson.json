@@ -3,7 +3,7 @@
     "targets": [ "jetson:9100"],
     "labels": {
       "env": "Jetson",
-      "job": "node-exporter"
+      "job": "jetson-node-exporter"
     }
   }
 ]
