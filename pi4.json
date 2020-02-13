@@ -3,7 +3,7 @@
     "targets": [ "pi4:9100"],
     "labels": {
       "env": "Pi 4",
-      "job": "node-exporter"
+      "job": "pi4-node-exporter"
     }
   }
 ]
