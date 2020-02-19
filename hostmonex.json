@@ -19,5 +19,12 @@
       "env": "DemoApp",
       "job": "DemoApp-Config"
     }
+  },
+  {
+    "targets": [ "tomcat-metrics:9200"],
+    "labels": {
+      "env": "Tomcat",
+      "job": "Tomcat-Metrics"
+    }
   }
 ]
