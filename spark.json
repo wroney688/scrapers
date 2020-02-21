@@ -1,6 +1,6 @@
 [
   {
-    "targets": [ "spark-metrics:9300", "pi4:9300","jetson:9300","apple-pi:9300","blueberry-pi:9300","cherry-pi:9300","pecan-pi:9300","pumpkin-pi:9300"],
+    "targets": [ "spark-metrics:9300", "pi4:9300","pirate-nvidia:9300","apple-pi:9300","blueberry-pi:9300","cherry-pi:9300","pecan-pi:9300","pumpkin-pi:9300"],
     "labels": {
       "env": "Spark",
       "job": "Spark-JMX"
