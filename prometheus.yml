@@ -1,0 +1,60 @@
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - "localhost:9093"
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  - "/alertrules/*.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  - job_name: 'internal-prometheus'
+    static_configs:
+    - targets: ['localhost:9090']
+  - job_name: 'internal-grafana'
+    static_configs:
+    - targets: ['localhost:3000']
+  - job_name: 'internal-alertmanager'
+    static_configs:
+    - targets: ['localhost:9093']
+  - job_name: 'internal-webhook'
+    static_configs:
+    - targets: ['localhost:5000']
+ # - job_name: 'envjobs'
+ #   file_sd_configs:
+ #     - files:
+ #       - /scrapers/*.json
+  - job_name: 'K8s Hosts'
+    file_sd_configs:
+      - files:
+        - /scrapers/k8s-hosts.json
+  - job_name: 'Pi 3s'
+    file_sd_configs:
+      - files:
+        - /scrapers/Pi3.json
+  - job_name: 'Pi 4s'
+    file_sd_configs:
+      - files:
+        - /scrapers/pi4.json
+  - job_name: 'Jetsons'
+    file_sd_configs:
+      - files:
+        - /scrapers/jetson.json
+  - job_name: 'ConfigCheckDemo'
+    file_sd_configs:
+      - files:
+        - /scrapers/hostmonex.json
+  - job_name: 'SparkCluster'
+    file_sd_configs:
+      - files:
+        - /scrapers/spark.json
