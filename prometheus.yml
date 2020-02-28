@@ -14,7 +14,7 @@ alerting:
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
   - "/scrapers/ConfigChecker.yml"
-  - "/scrapers/DemoApp.yml"
+#  - "/scrapers/DemoApp.yml"
   - "/scrapers/InstanceDown.yml"
 
 # A scrape configuration containing exactly one endpoint to scrape:
