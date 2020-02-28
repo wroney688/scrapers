@@ -45,3 +45,11 @@ groups:
       severity: triage
     annotations:
       description: "MyApp:S2:CSI is NOT T2"  
+
+  - alert: AutomatedConfigCheck
+    expr: configcheck == 0
+    for: 1m
+    labels:
+      severity: triage
+    annotations:
+      description: "Configuration Mismatch ==>  Job:{{ $labels.job }}, Instance{{ $labels.instance }} Config Set:{{ labels.path }}"  
