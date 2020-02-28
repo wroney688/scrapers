@@ -52,4 +52,4 @@ groups:
     labels:
       severity: triage
     annotations:
-      description: "Configuration Mismatch ==>  Job:{{ $labels.job }}, Instance{{ $labels.instance }} Config Set:{{ labels.path }}"  
+      description: "Configuration Mismatch ==>  target {{ $labels.instance }} of job {{ $labels.job }} does not appear to be correct."  
