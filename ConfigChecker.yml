@@ -62,7 +62,7 @@ groups:
     expr: app:perc_readiness == 1
     for: 1m
     labels:
-      severity: triage
+      severity: smoketest
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
   
