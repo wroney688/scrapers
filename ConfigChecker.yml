@@ -56,7 +56,7 @@ groups:
     labels:
       severity: triage
     annotations:
-      description: "Configuration Mismatch ==>  target {{ $labels.instance }} of job {{ $labels.job }} does not appear to be correct for {{ $labels.path }} ."  
+      description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
   - alert: ReadyToVerify
     expr: app:issues == 0
