@@ -1,5 +1,13 @@
 [
   {
+    "targets": [ "192.168.10.142:9270"],
+    "labels": {
+      "job": "node-AutoConfigMon",
+      "app": "myAppName",
+      "env": "MyEnvName"
+    }
+  },
+  {
     "targets": [ "nfr-testapp-host:9100"],
     "labels": {
       "env": "DemoApp",
