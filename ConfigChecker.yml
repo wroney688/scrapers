@@ -57,3 +57,12 @@ groups:
       severity: triage
     annotations:
       description: "Configuration Mismatch ==>  target {{ $labels.instance }} of job {{ $labels.job }} does not appear to be correct for {{ $labels.path }} ."  
+
+  - alert: ReadyToVerify
+    expr: app:issues == 0
+    for: 1m
+    labels:
+      severity: triage
+    annotations:
+      description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
+  
