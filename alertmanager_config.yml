@@ -1,0 +1,23 @@
+global:
+templates:
+- '/etc/alertmanager/*.tmpl'
+route:
+  receiver: page
+  group_by: ['alertname', 'priority']
+  group_wait: 10s
+  repeat_interval: 30m
+  routes:
+    - receiver: triage
+    # Send severity=slack alerts to slack.
+      match:
+        severity: triage
+      group_wait: 10s
+      repeat_interval: 1m
+
+receivers:
+- name: page
+  webhook_configs:
+  - url: http://localhost:5000/alert/page
+- name: triage
+  webhook_configs:
+  - url: http://localhost:5000/alert/triage
