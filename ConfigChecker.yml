@@ -2,6 +2,10 @@
 groups:
 - name: MyAppConfigCheck
   rules:
+  - record: app:issues
+    expr: count(configcheck == 0) by (app, env)    
+    
+  
   - record: MyAppConfigValue:S1:Market
     expr: absent( aut_config_info {envname="S1", YV="NYC"} )*2 or aut_config_info{envname="S1", YV="NYC"}
     
