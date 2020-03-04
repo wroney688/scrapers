@@ -2,8 +2,8 @@
 groups:
 - name: MyAppConfigCheck
   rules:
-  - record: app:issues
-    expr: count(configcheck == 0) by (app, env)    
+  - record: app:perc_readiness
+    expr: sum(configcheck) by (app, env) /  count(configcheck) by (app, env)    
   
   
 #  - record: MyAppConfigValue:S1:Market
@@ -59,7 +59,7 @@ groups:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
   - alert: ReadyToVerify
-    expr: app:issues == 0
+    expr: app:perc_readiness == 1
     for: 1m
     labels:
       severity: triage
