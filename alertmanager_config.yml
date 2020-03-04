@@ -21,3 +21,6 @@ receivers:
 - name: triage
   webhook_configs:
   - url: http://localhost:5000/alert/triage
+- name: smoketest
+  webhook_configs:
+  - url: http://localhost:5000/notify/triage
