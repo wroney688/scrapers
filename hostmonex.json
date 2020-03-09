@@ -37,7 +37,7 @@
     }
   },
   {
-    "targets": [ "tomcat-metrics:9200"],
+    "targets": [ "tomcat-metrics.default:9200"],
     "labels": {
       "env": "Tomcat",
       "job": "Tomcat-Metrics"
