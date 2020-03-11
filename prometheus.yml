@@ -29,7 +29,7 @@ scrape_configs:
   - job_name: 'internal-alertmanager'
     static_configs:
     - targets: ['tsm-alertmanager-web:9093']
-  - job_name: 'internal-webhook'
+  - job_name: 'internal-robotics'
     static_configs:
     - targets: ['tsm-robotics-web:5000']
   - job_name: 'internal-jenkins'
