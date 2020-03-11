@@ -32,6 +32,10 @@ scrape_configs:
   - job_name: 'internal-webhook'
     static_configs:
     - targets: ['tsm-webhook-web:5000']
+  - job_name: 'internal-jenkins'
+    static_configs:
+    - targets: ['tsm-jenkins-web:8080']
+      metrics_path: /prometheus
  # - job_name: 'envjobs'
  #   file_sd_configs:
  #     - files:
