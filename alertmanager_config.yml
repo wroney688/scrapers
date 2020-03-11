@@ -20,10 +20,10 @@ route:
 receivers:
 - name: page
   webhook_configs:
-  - url: http://tsm-webhook-web:5000/alert/page
+  - url: http://tsm-robotics-web:5000/alert/page
 - name: triage
   webhook_configs:
-  - url: http://tsm-webhook-web:5000/alert/triage
+  - url: http://tsm-robotics-web:5000/alert/triage
 - name: smoketest
   webhook_configs:
-  - url: http://tsm-webhook-web:5000/notify/triage
+  - url: http://tsm-robotics-web:5000/notify/smoketest
