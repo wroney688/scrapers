@@ -36,6 +36,9 @@ scrape_configs:
     metrics_path: /prometheus
     static_configs:
     - targets: ['tsm-jenkins-web:8080']
+  - job_name: 'internal-jupyter'
+    static_configs:
+    - targets: ['tsm-jupyter-web:8888']
  # - job_name: 'envjobs'
  #   file_sd_configs:
  #     - files:
