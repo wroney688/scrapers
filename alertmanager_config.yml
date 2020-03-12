@@ -16,12 +16,12 @@ route:
         receiver: yourAppTeam_Dev
         routes:
         - match:
-            app: "yourAppName"
-            env: "MyEnvName"
+            app: yourAppName
+            env: MyEnvName
           receiver: yourAppTeam_MyEnv_Team
         - match:
-            app: "yourAppName"
-            env: "MyEnvName"
+            app: yourAppName
+            env: MyEnvName
           receiver: yourAppTeam_YourEnv_Team
  
 
