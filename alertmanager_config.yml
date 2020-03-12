@@ -22,7 +22,7 @@ route:
 receivers:
 - name: robotics
   webhook_configs:
-  - url: http://192.168.10.142:5000/alert/page
+  - url: http://192.168.10.142:5000/alert/robotics
 - name: triage
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/triage
