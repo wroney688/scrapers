@@ -30,7 +30,9 @@ receivers:
 - name: triage
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/triage
+  - url: http://192.168.10.142:5000/alert/robotics
   
 - name: smoketest
   webhook_configs:
   - url: http://tsm-robotics-web:5000/notify/smoketest
+  - url: http://192.168.10.142:5000/alert/robotics
