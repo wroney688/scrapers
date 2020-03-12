@@ -32,20 +32,20 @@ receivers:
 
 - name: robotics
   webhook_configs:
-  - url: http://tsm-robotics-web:5000/notify/robotics
+  - url: http://tsm-robotics-web:5000/notify/roboticsGO
 
 - name: yourAppTeam_Dev
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_Dev
-  - url: http://tsm-robotics-web:5000/alert/robotics
+  - url: http://tsm-robotics-web:5000/alert/roboticsFYI1
   
 
 - name: yourAppTeam_MyEnv_Team
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_MyEnv_Team
-  - url: http://tsm-robotics-web:5000/alert/robotics
+  - url: http://tsm-robotics-web:5000/alert/roboticsFYI2
   
 - name: yourAppTeam_YourEnv_Team
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_YourEnv_Team
-  - url: http://tsm-robotics-web:5000/alert/robotics
+  - url: http://tsm-robotics-web:5000/alert/roboticsFYI3
