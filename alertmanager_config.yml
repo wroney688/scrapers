@@ -1,6 +1,7 @@
 global:
 templates:
 - '/etc/alertmanager/*.tmpl'
+receiver: robotics #default receiver
 route:
   receiver: robotics
   group_by: ['alertname', 'priority']
