@@ -13,6 +13,7 @@ route:
         receiver: robotics
       - match:
           severity: triage
+        receiver: yourAppTeam_MyEnv_Dev
         routes:
         - match:
             app: "yourAppName"
