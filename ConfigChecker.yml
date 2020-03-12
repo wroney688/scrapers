@@ -55,8 +55,8 @@ groups:
     for: 1m
     labels:
       severity: triage
-      app: {{ $labels.app }}
-      env: {{ $labels.env }}
+      app: "{{ $labels.app }}"
+      env: "{{ $labels.env }}"
     annotations:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
@@ -65,8 +65,8 @@ groups:
     for: 1m
     labels:
       severity: smoketest
-      app: {{ $labels.app }}
-      env: {{ $labels.env }}
+      app: "{{ $labels.app }}"
+      env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
   
