@@ -22,6 +22,17 @@ route:
         - match:
             env: yourEnvName
           receiver: yourAppTeam_YourEnv_Team
+      - match:
+          severity: triage
+          app: myAppName
+        receiver: myAppTeam_Dev
+        routes:
+        - match:
+            env: MyEnvName
+          receiver: myAppTeam_MyEnv_Team
+        - match:
+            env: yourEnvName
+          receiver: myAppTeam_YourEnv_Team
  
 
 receivers:
@@ -45,3 +56,16 @@ receivers:
 - name: yourAppTeam_YourEnv_Team
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_YourEnv_Team
+
+- name: myAppTeam_Dev
+  webhook_configs:
+  - url: http://tsm-robotics-web:5000/alert/myAppTeam_Dev
+
+- name: myAppTeam_MyEnv_Team
+  webhook_configs:
+  - url: http://tsm-robotics-web:5000/alert/myAppTeam_MyEnv_Team
+  - url: http://tsm-robotics-web:5000/alert/myAppTeam_Dev
+  
+- name: myAppTeam_YourEnv_Team
+  webhook_configs:
+  - url: http://tsm-robotics-web:5000/alert/myAppTeam_YourEnv_Team
