@@ -2,7 +2,7 @@ global:
 templates:
 - '/etc/alertmanager/*.tmpl'
 route:
-  receiver: robotics
+  receiver: page
   group_by: ['alertname', 'priority']
   group_wait: 10s
   repeat_interval: 1m
@@ -23,16 +23,16 @@ route:
       continue: true
 
 receivers:
-- name: robotics
+- name: page
   webhook_configs:
-  - url: http://192.168.10.142:5000/alert/robotics
+  - url: http://tsm-robotics-web:5000/alert/page
   
 - name: triage
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/triage
-  - url: http://192.168.10.142:5000/alert/robotics2
+  - url: http://192.168.10.142:5000/alert/robotics
   
 - name: smoketest
   webhook_configs:
   - url: http://tsm-robotics-web:5000/notify/smoketest
-  - url: http://192.168.10.142:5000/alert/robotics3
+  - url: http://192.168.10.142:5000/notify/robotics
