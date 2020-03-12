@@ -8,31 +8,39 @@ route:
   repeat_interval: 1m
   
   routes:
-    - receiver: triage
-      match:
-        severity: triage
+    - match:
+        app: "yourAppName"
+      receiver: yourAppTeam
       group_wait: 10s
       repeat_interval: 1m
-      continue: true
-      
-    - receiver: smoketest
-      match:
-        severity: smoketest
-      group_wait: 10s
-      repeat_interval: 1m
-      continue: true
+      routes:
+      - match:
+          severity: triage
+          env: "MyEnvName"
+        receiver: yourAppTeam_MyEnv
+      - match:
+          severity: triage
+          env: "yourEnvName"
+        receiver: yourAppTeam_YourEnv
+      - match:
+          severity: smoketest
+        receiver: robotics
 
 receivers:
 - name: page
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/page
-  
-- name: triage
+
+- name: robotics
   webhook_configs:
-  - url: http://tsm-robotics-web:5000/alert/triage
-  - url: http://192.168.10.142:5000/alert/robotics
-  
-- name: smoketest
+  - url: http://tsm-robotics-web:5000/notify/robotics
+    
+- name: yourAppTeam_MyEnv
   webhook_configs:
-  - url: http://tsm-robotics-web:5000/notify/smoketest
-  - url: http://192.168.10.142:5000/notify/robotics
+  - url: http://tsm-robotics-web:5000/alert/yourAppTeam_MyEnv
+  - url: http://tsm-robotics-web:5000/alert/robotics
+  
+- name: yourAppTeam_YourEnv
+  webhook_configs:
+  - url: http://tsm-robotics-web:5000/alert/yourAppTeam_YourEnv
+  - url: http://tsm-robotics-web:5000/alert/robotics
