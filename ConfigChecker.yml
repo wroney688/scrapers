@@ -54,7 +54,7 @@ groups:
     expr: configcheck == 0
     for: 1m
     labels:
-      severity: triage
+      severity: triage, page
     annotations:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
@@ -62,7 +62,7 @@ groups:
     expr: app:perc_readiness == 1
     for: 1m
     labels:
-      severity: smoketest
+      severity: smoketest, page
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
   
