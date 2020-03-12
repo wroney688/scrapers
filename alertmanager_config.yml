@@ -39,10 +39,11 @@ receivers:
 - name: page
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/page
+  - url: http://192.168.10.142:5000/alert/roboticsPAGE
 
 - name: robotics
   webhook_configs:
-  - url: http://tsm-robotics-web:5000/notify/roboticsGO
+  - url: http://192.168.10.142:5000/notify/roboticsGO
 
 - name: yourAppTeam_Dev
   webhook_configs:
