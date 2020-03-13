@@ -4,6 +4,12 @@ groups:
   rules:
   - record: app:perc_readiness
     expr: sum(configcheck) by (app, env) /  count(configcheck) by (app, env)    
+    
+  - record: app:ready_to_test
+    expr: (sum(configcheck) by (app, env) /  count(configcheck) by (app, env)) == 1
+    
+  - record: app:ready_to_use
+    expr: (sum(configcheck) by (app, env) /  count(configcheck) by (app, env)) == 1
 
   - alert: AutomatedConfigCheck
     expr: configcheck == 0
@@ -16,7 +22,7 @@ groups:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
   - alert: ReadyToVerify
-    expr: app:perc_readiness == 1
+    expr: app:ready_to_test == 1
     for: 1m
     labels:
       severity: smoketest
@@ -26,7 +32,7 @@ groups:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
   
   - alert: ReadyToUse
-    expr: app:perc_readiness == 1
+    expr: app:ready_to_use == 1
     for: 1m
     labels:
       severity: ready
