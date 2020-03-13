@@ -23,6 +23,9 @@ scrape_configs:
   - job_name: 'internal-prometheus'
     static_configs:
     - targets: ['tsm-prometheus-web:9090']
+  - job_name: 'internal-push-gateway'
+    static_configs:
+    - targets: ['tsm-prometheus-push:9091']
   - job_name: 'internal-grafana'
     static_configs:
     - targets: ['tsm-grafana-web:3000']
