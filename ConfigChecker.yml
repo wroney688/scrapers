@@ -2,11 +2,8 @@
 groups:
 - name: MyAppConfigCheck
   rules:
-  - record: app:perc_readiness
-    expr: sum(configcheck) by (app, env) /  count(configcheck) by (app, env)    
-    
   - record: app:ready_to_test
-    expr: (sum(configcheck) by (app, env) /  count(configcheck) by (app, env)) == 1
+    expr: sum(configcheck) by (app, env) == count(configcheck)) by (app, env)
     
   - record: app:ready_to_use
     expr: ceil(predict_linear(app:ready_to_test[24h], 30))
