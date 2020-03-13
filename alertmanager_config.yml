@@ -11,6 +11,7 @@ route:
       - match:
           severity: smoketest
         receiver: robotics
+        repeat_interval: 1h
       - match:
           severity: triage
           app: yourAppName
