@@ -13,6 +13,10 @@ route:
         receiver: robotics
         repeat_interval: 1h
       - match:
+          severity: ready
+        receiver: ready
+        repeat_interval: 24h
+      - match:
           severity: triage
           app: yourAppName
         receiver: yourAppTeam_Dev
@@ -41,6 +45,10 @@ receivers:
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/page
   - url: http://192.168.10.142:5000/alert/roboticsPAGE
+
+- name: ready
+  webhook_configs:
+  - url: http://tsm-robotics-web:5000/notify/ready_to_use
 
 - name: robotics
   webhook_configs:
