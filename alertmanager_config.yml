@@ -11,11 +11,11 @@ route:
       - match:
           severity: smoketest
         receiver: robotics
-        repeat_interval: 1h
+        repeat_interval: 1m
       - match:
           severity: ready
         receiver: ready
-        repeat_interval: 24h
+        repeat_interval: 1m
       - match:
           severity: triage
           app: yourAppName
