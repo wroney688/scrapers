@@ -4,51 +4,6 @@ groups:
   rules:
   - record: app:perc_readiness
     expr: sum(configcheck) by (app, env) /  count(configcheck) by (app, env)    
-  
-  
-#  - record: MyAppConfigValue:S1:Market
-#    expr: absent( aut_config_info {envname="S1", YV="NYC"} )*2 or aut_config_info{envname="S1", YV="NYC"}
-    
-#  - record: MyAppConfigValue:S2:Market
-#    expr: absent( aut_config_info {envname="S1", YV="DLS"} )*2 or aut_config_info{envname="S1", YV="DLS"}
-
-#  - record: MyAppConfigValue:S1:CSI
-#    expr: absent( aut_config_info {envname="S1", CV="T1"} )*2 or aut_config_info{envname="S1", CV="T1"}
-    
-#  - record: MyAppConfigValue:S2:CSI
-#    expr: absent( aut_config_info {envname="S1", CV="T2"} )*2 or aut_config_info{envname="S1", CV="T2"}
-    
-#  - alert: MyAppConfigInvalid
-#    expr: MyAppConfigValue:S1:Market == 2
-#    for: 1m
-#    labels:
-#      severity: triage
-#    annotations:
-#      description: "MyApp:S1:Market is NOT NYC"  
-      
-#  - alert: MyAppConfigInvalid2
-#    expr: MyAppConfigValue:S2:Market == 2
-#    for: 1m
-#    labels:
-#      severity: triage
-#    annotations:
-#      description: "MyApp:S2:Market is NOT DLS"  
-
-#  - alert: MyAppConfigInvalid3
-#    expr: MyAppConfigValue:S1:CSI == 2
-#    for: 1m
-#    labels:
-#      severity: triage
-#    annotations:
-#      description: "MyApp:S1:CSI is NOT T1"  
-      
-#  - alert: MyAppConfigInvalid4
-#    expr: MyAppConfigValue:S2:CSI == 2
-#    for: 1m
-#    labels:
-#      severity: triage
-#    annotations:
-#      description: "MyApp:S2:CSI is NOT T2"  
 
   - alert: AutomatedConfigCheck
     expr: configcheck == 0
@@ -69,4 +24,14 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
+  
+  - alert: ReadyToUse
+    expr: app:perc_readiness == 1
+    for: 1m
+    labels:
+      severity: ready
+      app: "{{ $labels.app }}"
+      env: "{{ $labels.env }}"
+    annotations:
+      description: "Environment Ready for LIVE use.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
   
