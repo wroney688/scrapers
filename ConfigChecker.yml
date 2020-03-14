@@ -25,7 +25,7 @@ groups:
     expr: app:ready_to_test == 1 unless (app:ready_to_use)
     for: 1m
     labels:
-      severity: triage, ready_to_test
+      severity: notify, ready_to_test
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
     annotations:
@@ -52,7 +52,7 @@ groups:
     expr: app:ready_to_use > 0 
     for: 1m
     labels:
-      severity: triage, ready_to_use
+      severity: notify, ready_to_use
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
     annotations:
