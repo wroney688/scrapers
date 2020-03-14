@@ -27,6 +27,23 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
+      isready: "False"
+      app: "{{ $labels.app }}"
+      env: "{{ $labels.env }}"
+
+  - alert: RequiresVerification
+    expr: app:ready_to_test != 1
+    for: 1m
+    labels:
+      severity: smoketest
+      app: "{{ $labels.app }}"
+      env: "{{ $labels.env }}"
+    annotations:
+      description: "Environment has been modified.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
+      isready: "False"
+      app: "{{ $labels.app }}"
+      env: "{{ $labels.env }}"
+  
   
   - alert: ReadyToUse
     expr: app:ready_to_use == 1
