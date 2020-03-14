@@ -34,7 +34,7 @@ groups:
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
 
-  - alert: RequiresVerification
+  - alert: EnvChanging
     expr: app:ready_to_test != 1
     for: 1m
     labels:
