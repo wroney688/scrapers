@@ -46,7 +46,7 @@ groups:
   
   
   - alert: ReadyToUse
-    expr: app:ready_to_use == 1
+    expr: app:ready_to_use > 0 
     for: 1m
     labels:
       severity: ready
