@@ -52,30 +52,36 @@ receivers:
 
 - name: robotics
   webhook_configs:
-  - url: http://192.168.10.142:5000/notify/roboticsGO
+  - url: http://192.168.10.142:5000/notify/roboticsSmokeTest
 
 - name: yourAppTeam_Dev
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_Dev
+  - url: http://192.168.10.142:5000/alert/roboticsAlert
 
 - name: yourAppTeam_MyEnv_Team
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_MyEnv_Team
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_Dev
+  - url: http://192.168.10.142:5000/alert/roboticsAlert1
   
 - name: yourAppTeam_YourEnv_Team
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/yourAppTeam_YourEnv_Team
+  - url: http://192.168.10.142:5000/alert/roboticsAlert2
 
 - name: myAppTeam_Dev
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/myAppTeam_Dev
+  - url: http://192.168.10.142:5000/alert/roboticsAlert3
 
 - name: myAppTeam_MyEnv_Team
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/myAppTeam_MyEnv_Team
   - url: http://tsm-robotics-web:5000/alert/myAppTeam_Dev
+  - url: http://192.168.10.142:5000/alert/roboticsAlert4
   
 - name: myAppTeam_YourEnv_Team
   webhook_configs:
   - url: http://tsm-robotics-web:5000/alert/myAppTeam_YourEnv_Team
+  - url: http://192.168.10.142:5000/alert/roboticsAlert5
