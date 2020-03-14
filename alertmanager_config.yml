@@ -12,26 +12,26 @@ route:
           severity: ready_to_test|ready_to_run|not_ready
         receiver: robotics
         repeat_interval: 1m
-      - match:
+      - match_re:
           severity: triage
           app: yourAppName
         receiver: yourAppTeam_Dev
         routes:
-        - match:
+        - match_re:
             env: MyEnvName
           receiver: yourAppTeam_MyEnv_Team
-        - match:
+        - match_re:
             env: yourEnvName
           receiver: yourAppTeam_YourEnv_Team
-      - match:
+      - match_re:
           severity: triage
           app: myAppName
         receiver: myAppTeam_Dev
         routes:
-        - match:
+        - match_re:
             env: MyEnvName
           receiver: myAppTeam_MyEnv_Team
-        - match:
+        - match_re:
             env: yourEnvName
           receiver: myAppTeam_YourEnv_Team
  
