@@ -36,7 +36,7 @@ groups:
 
   - alert: RequiresVerification
     expr: app:ready_to_test != 1
-    for: 10s
+    for: 1m
     labels:
       severity: smoketest
       app: "{{ $labels.app }}"
