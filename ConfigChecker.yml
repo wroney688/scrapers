@@ -3,7 +3,7 @@ groups:
 - name: TouchlessConfigCheck
   rules:
   - record: app:ready_to_test
-    expr: (sum(configcheck) / count(configcheck)) by (app, env)
+    expr: sum(configcheck) by (app, env) / count(configcheck) by (app, env)
     
   - record: app:ready_to_use
     expr: ceil(predict_linear(app:ready_to_test[24h], 30))
