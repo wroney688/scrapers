@@ -16,27 +16,6 @@
     }
   },
   {
-    "targets": [ "nfr-testapp-host:9100"],
-    "labels": {
-      "env": "DemoApp",
-      "job": "node-exporter"
-    }
-  },
-  {
-    "targets": [ "nfr-testapp-metrics:5000"],
-    "labels": {
-      "env": "DemoApp",
-      "job": "DemoApp"
-    }
-  },
-  {
-    "targets": [ "nfr-testapp-config:9270"],
-    "labels": {
-      "env": "DemoApp",
-      "job": "DemoApp-Config"
-    }
-  },
-  {
     "targets": [ "tomcat-metrics.default:9200"],
     "labels": {
       "env": "Tomcat",
