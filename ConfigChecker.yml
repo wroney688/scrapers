@@ -57,7 +57,7 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for LIVE use.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      isready: "True"
+      isready: "Live"
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
   
