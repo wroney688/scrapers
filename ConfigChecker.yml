@@ -30,7 +30,7 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      isready: "False"
+      isready: "True"
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
 
