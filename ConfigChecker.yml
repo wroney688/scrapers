@@ -17,9 +17,6 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
-      isready: "False"
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
 
   - alert: ReadyToVerify
     expr: app:ready_to_test == 1 unless (app:ready_to_use)
