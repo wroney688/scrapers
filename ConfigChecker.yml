@@ -12,7 +12,7 @@ groups:
     expr: configcheck == 0
     for: 1m
     labels:
-      severity: triage
+      severity: triage, not_ready
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
     annotations:
@@ -25,7 +25,7 @@ groups:
     expr: app:ready_to_test == 1 unless (app:ready_to_use)
     for: 1m
     labels:
-      severity: smoketest
+      severity: triage, ready_to_test
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
     annotations:
@@ -34,25 +34,25 @@ groups:
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
 
-  - alert: RequiresVerification
-    expr: app:ready_to_test != 1
-    for: 1m
-    labels:
-      severity: smoketest
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
-    annotations:
-      description: "Environment has been modified.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      isready: "False"
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
+#  - alert: RequiresVerification
+#    expr: app:ready_to_test != 1
+#    for: 1m
+#    labels:
+#      severity: triage, not_ready
+#      app: "{{ $labels.app }}"
+#      env: "{{ $labels.env }}"
+#    annotations:
+#      description: "Environment has been modified.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
+#      isready: "False"
+#      app: "{{ $labels.app }}"
+#      env: "{{ $labels.env }}"
   
   
   - alert: ReadyToUse
     expr: app:ready_to_use > 0 
     for: 1m
     labels:
-      severity: ready
+      severity: triage, ready_to_use
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
     annotations:
