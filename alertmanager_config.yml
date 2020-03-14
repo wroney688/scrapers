@@ -9,12 +9,8 @@ route:
   
   routes:
       - match:
-          severity: smoketest
+          severity: ready_to_test, ready_to_run, not_ready
         receiver: robotics
-        repeat_interval: 1m
-      - match:
-          severity: ready
-        receiver: ready
         repeat_interval: 1m
       - match:
           severity: triage
@@ -46,14 +42,9 @@ receivers:
 #  - url: http://tsm-robotics-web:5000/alert/page
   - url: http://192.168.10.142:5000/alert/roboticsPAGE
 
-- name: ready
-  webhook_configs:
-#  - url: http://tsm-robotics-web:5000/notify/ready_to_use
-  - url: http://192.168.10.142:5000/notify/ready_to_use
-
 - name: robotics
   webhook_configs:
-  - url: http://192.168.10.142:5000/notify/roboticsSmokeTest
+  - url: http://192.168.10.142:5000/robotics
 
 - name: yourAppTeam_Dev
   webhook_configs:
