@@ -10,7 +10,7 @@ groups:
 
   - alert: AutomatedConfigCheck
     expr: configcheck == 0
-    for: 1m
+    for: 10s
     labels:
       severity: triage
       app: "{{ $labels.app }}"
@@ -33,7 +33,7 @@ groups:
 
   - alert: EnvChanging
     expr: app:ready_to_test != 1
-    for: 1m
+    for: 10s
     labels:
       severity: not_ready
       app: "{{ $labels.app }}"
