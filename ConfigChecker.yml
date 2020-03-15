@@ -6,7 +6,7 @@ groups:
     expr: sum(configcheck) by (app, env) / count(configcheck) by (app, env)
     
   - record: app:ready_to_use
-    expr: readiness_test{success="True"} != -1
+    expr: readiness_test >= 0
 
   - alert: AutomatedConfigCheck
     expr: configcheck == 0
