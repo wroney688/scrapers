@@ -9,7 +9,7 @@ route:
   
   routes:
       - match_re:
-          severity: ready_to_test|ready_to_run|not_ready
+          severity: ready_to_test|ready_to_use|not_ready
         receiver: robotics
         repeat_interval: 1m
       - match_re:
