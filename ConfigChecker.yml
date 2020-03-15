@@ -27,8 +27,6 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
 
   - alert: EnvChanging
     expr: app:ready_to_test != 1
@@ -39,8 +37,6 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment has been modified.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
     
   - alert: ReadyToUse
     expr: app:ready_to_use > 0 
