@@ -19,7 +19,7 @@ groups:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
   - alert: ReadyToVerify
-    expr: app:ready_to_test == 1 unless (app:ready_to_use)
+    expr: (max(app:ready_to_test)  by (app, env) == 1) unless(max(app:ready_to_use) by (app, env) >= 0)
     for: 1m
     labels:
       severity: ready_to_test
