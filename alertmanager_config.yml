@@ -11,7 +11,7 @@ route:
       - match_re:
           severity: ready_to_test|ready_to_use|not_ready
         receiver: robotics
-        repeat_interval: 1m
+        repeat_interval: 30m
       - match_re:
           severity: triage
           app: yourAppName
