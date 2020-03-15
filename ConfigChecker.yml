@@ -27,7 +27,6 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      isready: "True"
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
 
@@ -40,7 +39,6 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment has been modified.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      isready: "False"
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
     
@@ -53,7 +51,6 @@ groups:
       env: "{{ $labels.env }}"
     annotations:
       description: "Environment Ready for LIVE use.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      isready: "Live"
       app: "{{ $labels.app }}"
       env: "{{ $labels.env }}"
   
