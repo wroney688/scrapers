@@ -12,7 +12,6 @@ route:
           severity: ready_to_test|ready_to_use|not_ready
         receiver: robotics
         repeat_interval: 30m
-        send_resolved: false
       - match_re:
           severity: triage
           app: yourAppName
@@ -46,6 +45,7 @@ receivers:
 - name: robotics
   webhook_configs:
   - url: http://192.168.10.142:5000/robotics
+    send_resolved: false
 
 - name: yourAppTeam_Dev
   webhook_configs:
