@@ -19,14 +19,14 @@ groups:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
   - alert: ReadyToVerify
-    expr: (max(app:ready_to_test)  by (app, env) == 1) unless(max(app:ready_to_use) by (exported_app, exported_env) >= 0)
+    expr: (max(label_join(label_join(app:ready_to_test, "exported_app",",","app"),"exported_env",",","env"))  by (exported_app, exported_env) == 1) unless(max(app:ready_to_use) by (exported_app, exported_env) >= 0)
     for: 1m
     labels:
       severity: ready_to_test
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
+      app: "{{ $labels.exported_app }}"
+      env: "{{ $labels.exported_env }}"
     annotations:
-      description: "Environment Ready for Smoke Testing.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
+      description: "Environment Ready for Smoke Testing.  Application: {{ $labels.exported_app }} Environment: {{ $labels.exported_env }}."  
 
   - alert: EnvChanging
     expr: app:ready_to_test != 1
