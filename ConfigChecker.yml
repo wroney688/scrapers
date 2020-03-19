@@ -19,7 +19,7 @@ groups:
       description: "Configuration Mismatch ==>  Application: {{ $labels.app }} Environment: {{ $labels.env }} Value: {{ $labels.path }} ."  
 
   - alert: ReadyToVerify
-    expr: (max(app:ready_to_test)  by (app, env) == 1) unless(max(app:ready_to_use) by (app, env) >= 0)
+    expr: (max(app:ready_to_test)  by (app, env) == 1) unless(max(app:ready_to_use) by (exported_app, exported_env) >= 0)
     for: 1m
     labels:
       severity: ready_to_test
@@ -43,10 +43,10 @@ groups:
     for: 1m
     labels:
       severity: ready_to_use
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
+      app: "{{ $labels.exported_app }}"
+      env: "{{ $labels.exported_env }}"
     annotations:
-      description: "Environment Ready for LIVE use.  Application: {{ $labels.app }} Environment: {{ $labels.env }}."  
-      app: "{{ $labels.app }}"
-      env: "{{ $labels.env }}"
+      description: "Environment Ready for LIVE use.  Application: {{ $labels.exported_app }} Environment: {{ $labels.exported_env }}."  
+      app: "{{ $labels.exported_app }}"
+      env: "{{ $labels.exported_env }}"
   
